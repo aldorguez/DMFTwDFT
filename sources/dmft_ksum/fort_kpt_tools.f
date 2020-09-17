@@ -130,10 +130,10 @@ Cf2py intent(out) mult
 
       end
 
-      subroutine tetra_pnf(norb,nki,ntet,tet_idx,tetkptr,eigval,cpdos)
+      (norb,nki,ntet,tet_idx,tetkptr,eigval,cpdos)
       ! f2py --link-lapack_opt -c tempfort.f -m  tempfort
       implicit none
-      integer norb,i,nki,t
+      integer norb,nki,t
       real*8 eigval(nki,norb)
       real*8 cpdos(nki,norb)
       real*8 temp(4)
@@ -144,6 +144,8 @@ Cf2py intent(out) mult
 Cf2py intent(in) norb,nki,ntet,tet_idx,tetkptr,eigval
 Cf2py intent(out) cpdos
 
+      ! initialize ef
+      ef=0.0
       ! loop over the tetra...
       cpdos=0
       do t=1,ntet
