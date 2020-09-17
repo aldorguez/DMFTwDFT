@@ -728,7 +728,7 @@ contains
     real(kind=dp) :: tot_n
     complex(kind=dp) :: Gs, Gs0
     integer :: i,j,l,ik,r,ib,im,ispin,loc_i,ierr,x,y,z
-    integer :: nbmin,nbmax,num_band_max, iter,Niter
+    integer :: nbmin,nbmax,num_band_max, iter,Niter, IDIR, ION
     integer :: numk_loc,nfine_tot, ntet_loc, nbin
     !integer,intent(in) :: n_kpts_loc,n_wann
     ! Needed to split an array on different nodes
@@ -736,7 +736,7 @@ contains
     integer, dimension(0:num_nodes - 1) :: displs
     integer, dimension(0:num_nodes - 1) :: counts_tet
     integer, dimension(0:num_nodes - 1) :: displs_tet
-    real(kind=dp) :: rdotk, fermi0, tot, IDIR, ION
+    real(kind=dp) :: rdotk, fermi0, tot
     real(kind=dp) :: eps,deps, dosef, Ekin, Nd, sweight,dm_loc, dEkin(nions,ndir), dN(nspin,n_atoms*n_orbs,nions,ndir), dmu(nions,ndir)
     real(kind=dp) :: dSig(nspin,n_atoms,nions,ndir), dN2(num_bands,nions,ndir)
     real(kind=dp), allocatable :: eval0(:,:,:)
