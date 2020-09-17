@@ -1,0 +1,22 @@
+
+#=====================================================
+# For Linux with intel version 11/12 on 64bit machines
+#=====================================================
+F90=gfortran
+COMMS=mpi
+MPIF90=mpif90
+CMP = f2py --fcompiler=gnu95
+# fortran to python converter
+
+FCOPTS=-O2 -ffree-line-length-none
+#-Wunused-function -Wunused-variable -Wmaybe-uninitialized
+#-check
+LDOPTS=-O2
+#-Wunused-function -Wunused-variable -Wmaybe-uninitialized
+
+#=======================
+# Blas and LAPACK
+#=======================
+
+LIBDIR = /usr/lib
+LIBS = -L$(LIBDIR)  -llapack -lblas
