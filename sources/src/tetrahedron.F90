@@ -408,19 +408,19 @@ contains
 
     cpdos=0.0_dp
         ! loop over the tetra...
-    do t=tet_min,tet_max
+    do te=tet_min,tet_max
       do b=1,norb
-        temp(1)=tval(tet_idx(tetkptr(t,1)),b)
-        temp(2)=tval(tet_idx(tetkptr(t,2)),b)
-        temp(3)=tval(tet_idx(tetkptr(t,3)),b)
-        temp(4)=tval(tet_idx(tetkptr(t,4)),b)
+        temp(1)=tval(tet_idx(tetkptr(te,1)),b)
+        temp(2)=tval(tet_idx(tetkptr(te,2)),b)
+        temp(3)=tval(tet_idx(tetkptr(te,3)),b)
+        temp(4)=tval(tet_idx(tetkptr(te,4)),b)
         call sortr(temp,order,4)
         e1=temp(1);e2=temp(2);e3=temp(3);e4=temp(4)
           ! store the projections with proper order for given band...
-        i1=tet_idx(tetkptr(t,order(1)))
-        i2=tet_idx(tetkptr(t,order(2)))
-        i3=tet_idx(tetkptr(t,order(3)))
-        i4=tet_idx(tetkptr(t,order(4)))
+        i1=tet_idx(tetkptr(te,order(1)))
+        i2=tet_idx(tetkptr(te,order(2)))
+        i3=tet_idx(tetkptr(te,order(3)))
+        i4=tet_idx(tetkptr(te,order(4)))
         cw1=0.0_dp;cw2=0.0_dp;cw3=0.0_dp;cw4=0.0_dp
         if (en>e1 .and. en<e2) then
           c=0.25*(en-e1)**3/((e2-e1)*(e3-e1)*(e4-e1))
@@ -477,7 +477,7 @@ contains
     do eps=1,nbin+1
       en=emin+(eps-1)*deps
         ! loop over the tetra...
-      do t=tet_min,tet_max
+      do te=tet_min,tet_max
 !          do i=1,4
 !            ! compute projections for each kpoint in tetra...
 !            ctemp=matmul(transpose(gred(gptr(tet(t,i)),:,:)),
@@ -486,17 +486,17 @@ contains
 !            ptemp0(i,:,:)=real(conjg(ctemp)*ctemp)
 !          enddo
         do b=1,norb
-          temp(1)=tval(tet_idx(tetkptr(t,1)),b)
-          temp(2)=tval(tet_idx(tetkptr(t,2)),b)
-          temp(3)=tval(tet_idx(tetkptr(t,3)),b)
-          temp(4)=tval(tet_idx(tetkptr(t,4)),b)
+          temp(1)=tval(tet_idx(tetkptr(te,1)),b)
+          temp(2)=tval(tet_idx(tetkptr(te,2)),b)
+          temp(3)=tval(tet_idx(tetkptr(te,3)),b)
+          temp(4)=tval(tet_idx(tetkptr(te,4)),b)
           call sortr(temp,order,4)
           e1=temp(1);e2=temp(2);e3=temp(3);e4=temp(4)
             ! store the projections with proper order for given band...
-          i1=tet_idx(tetkptr(t,order(1)))
-          i2=tet_idx(tetkptr(t,order(2)))
-          i3=tet_idx(tetkptr(t,order(3)))
-          i4=tet_idx(tetkptr(t,order(4)))
+          i1=tet_idx(tetkptr(te,order(1)))
+          i2=tet_idx(tetkptr(te,order(2)))
+          i3=tet_idx(tetkptr(te,order(3)))
+          i4=tet_idx(tetkptr(te,order(4)))
   !          ptemp(1,:)=ptemp0(order(1),:,b)
   !          ptemp(2,:)=ptemp0(order(2),:,b)
   !          ptemp(3,:)=ptemp0(order(3),:,b)
