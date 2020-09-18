@@ -32,10 +32,10 @@ FFLAGS = -O2  -ffree-form -ffree-line-length-none $(OPENMP)
 OFLAGS = -O2 
 
 LALIB  =  -lblas -llapack
-FFTLIB =  -lfftw3_omp -lfftw3 
-FFTINC =  -I/usr/include
-GSLLIB =  -lgsl 
-GSLINC =  
+FFTLIB = -L$(FFTWROOT)/lib -lfftw3_omp -lfftw3
+FFTINC = -I$(FFTWROOT)/include -I/usr/include
+GSLLIB = -L$(GSLROOT)/lib -lgsl
+GSLINC = -I$(GSLROOT)/include -I/usr/include
 PIC    =  -fPIC
 WFOPT  = -O2  -ffree-form -ffree-line-length-none $(OPENMP)  $(FFTINC)
 WLIBS   = $(FFTLIB)  $(LALIB)
